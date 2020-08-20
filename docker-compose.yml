@@ -11,6 +11,9 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       # Mount source-code for development
       - ./:/app
+    environment:
+      - HOST_USER_ID=1001
+      - HOST_USER_GID=1001
 
   backend:
     build: backend
@@ -21,6 +24,9 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       # Mount source-code for development
       - ./:/app
+    environment:
+      - HOST_USER_ID=1001
+      - HOST_USER_GID=1001
 
   mysql:
     image: mysql:5.7
@@ -28,7 +34,9 @@ services:
       - MYSQL_ROOT_PASSWORD=verysecret
       - MYSQL_DATABASE=yii2advanced
       - MYSQL_USER=yii2advanced
-      - MYSQL_PASSWORD=secret
+      - MYSQL_PASSWORD=secret      
+      - HOST_USER_ID=1001
+      - HOST_USER_GID=1001
     ports:
       - 33060:3306
 
