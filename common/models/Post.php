@@ -72,16 +72,6 @@ class Post extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Comments]].
-     *
-     * @return \yii\db\ActiveQuery|\common\models\query\CommentQuery
-     */
-    public function getComments()
-    {
-        return $this->hasMany(Comment::className(), ['post_id' => 'id']);
-    }
-
-    /**
      * Gets query for [[CreatedBy]].
      *
      * @return \yii\db\ActiveQuery|\common\models\query\UserQuery

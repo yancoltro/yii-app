@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%comment}}".
@@ -28,12 +30,24 @@ class Comment extends \yii\db\ActiveRecord
         return '{{%comment}}';
     }
 
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+            [
+                'class' => BlameableBehavior::class,
+                'updatedByAttribute' => false
+            ]
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
+            [['title', 'post_id'], 'required'],
             [['body'], 'string'],
             [['created_at', 'updated_at', 'created_by', 'post_id'], 'integer'],
             [['title'], 'string', 'max' => 512],
@@ -84,6 +98,6 @@ class Comment extends \yii\db\ActiveRecord
      */
     public static function find()
     {
-        return new CommentQuery(get_called_class());
+        return new \common\models\query\CommentQuery(get_called_class());
     }
 }
