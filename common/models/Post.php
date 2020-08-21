@@ -21,6 +21,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Post extends \yii\db\ActiveRecord
 {
+
+
     /**
      * {@inheritdoc}
      */
