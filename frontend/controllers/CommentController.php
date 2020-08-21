@@ -4,7 +4,6 @@ namespace frontend\controllers;
 
 use frontend\resource\Comment;
 use yii\data\ActiveDataProvider;
-use yii\rest\ActiveController;
 
 class CommentController extends ActiveController{
 
@@ -23,4 +22,5 @@ class CommentController extends ActiveController{
             'query' => $this->modelClass::find()->andWhere(['post_id' => \Yii::$app->request->get('postId')])
         ]);
     }
+
 }
