@@ -9,4 +9,10 @@ class PostController extends ActiveController{
 
         public $modelClass = Post::class;
 
+        public function behaviors()
+        {
+                $behaviors = parent::behaviors();
+                $behaviors['autheticator'];
+        }
+
 }   

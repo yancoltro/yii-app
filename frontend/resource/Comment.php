@@ -7,7 +7,7 @@ use common\models\Comment as ModelsComment;
 class Comment extends ModelsComment{
 
     public function fields(){
-        return ['id', 'title', 'body'];
+        return ['id', 'title', 'body', 'post_id'];
     }
 
     public function extraFields()

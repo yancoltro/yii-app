@@ -73,16 +73,6 @@ class Comment extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Post]].
-     *
-     * @return \yii\db\ActiveQuery|PostQuery
-     */
-    public function getPost()
-    {
-        return $this->hasOne(Post::className(), ['id' => 'post_id']);
-    }
-
-    /**
      * Gets query for [[CreatedBy]].
      *
      * @return \yii\db\ActiveQuery|yii\db\ActiveQuery
