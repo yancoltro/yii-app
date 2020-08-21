@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use frontend\resource\Post;
+use yii\filters\auth\HttpBearerAuth;
 use yii\rest\ActiveController;
 
 class PostController extends ActiveController{
@@ -12,7 +13,12 @@ class PostController extends ActiveController{
         public function behaviors()
         {
                 $behaviors = parent::behaviors();
-                $behaviors['autheticator'];
+                $behaviors['authenticator']['only'] = ['create', 'update', 'delete'];
+                $behaviors['authenticator']['authMethods'] = [
+                        HttpBearerAuth::class
+                ];
+
+                return $behaviors;
         }
 
 }   
