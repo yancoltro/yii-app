@@ -4,21 +4,10 @@ namespace frontend\controllers;
 
 use frontend\resource\Comment;
 use yii\data\ActiveDataProvider;
-use yii\filters\auth\HttpBearerAuth;
-use yii\rest\ActiveController;
 
 class CommentController extends ActiveController{
 
     public $modelClass = Comment::class;
-
-    public function behaviors(){
-        $behaviors = parent::behaviors();
-        $behaviors['authenticator']['only'] = ['create', 'update', 'delete'];
-        $behaviors['authenticator']['authMethods'] = [
-                HttpBearerAuth::class
-        ];
-        return $behaviors;
-    }
 
     public function actions()
     {
@@ -33,4 +22,5 @@ class CommentController extends ActiveController{
             'query' => $this->modelClass::find()->andWhere(['post_id' => \Yii::$app->request->get('postId')])
         ]);
     }
+
 }
