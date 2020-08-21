@@ -14,7 +14,7 @@ class Post extends ModelsPost{
 
     public function extraFields()
     {                                                                                           
-        return ['comments', 'created_at', 'updated_at', 'updated_by'];
+        return ['comments', 'created_at', 'updated_at', 'updated_by', 'created_by', 'createdBy'];
     }
 
 
