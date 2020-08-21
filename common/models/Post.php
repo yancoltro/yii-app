@@ -37,7 +37,7 @@ class Post extends \yii\db\ActiveRecord
               'class' => BlameableBehavior::class,
               'updatedByAttribute' => false
           ] 
-        ]
+          ];
     }
 
     /**
